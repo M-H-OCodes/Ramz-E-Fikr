@@ -1,0 +1,6 @@
+{
+  "name": "Ramz-e-Fikr | رمزِ فکر — Debate & Argumentation Archive",
+  "description": "An open-access digital publication, curated motion database, and scholarship library for competitive debate and critical inquiry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

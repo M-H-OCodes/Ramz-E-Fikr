@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, Cambria, serif;
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-urdu: "Amiri", "Noto Nastaliq Urdu", serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-oxblood: #681F2B;
+  --color-burgundy: #48151E;
+  --color-ivory: #F7F3EA;
+  --color-parchment: #EFE8DA;
+  --color-ink: #171717;
+  --color-charcoal: #625D57;
+  --color-gold: #B79558;
+  --color-border-warm: #D8CCBB;
+}
+
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, Cambria, serif;
+}
+
+.font-urdu {
+  font-family: 'Amiri', 'Noto Nastaliq Urdu', serif;
+}
+
+.font-body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+/* Custom styling for drop-caps in long-form articles */
+.drop-cap::first-letter {
+  float: left;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 3.4rem;
+  line-height: 0.85;
+  padding-right: 0.55rem;
+  padding-top: 0.15rem;
+  color: #681F2B;
+  font-weight: 600;
+}
+
+/* Custom scrollbars matching the warm paper theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EFE8DA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CCBB;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B79558;
+}
