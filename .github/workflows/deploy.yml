@@ -30,9 +30,11 @@ jobs:
           bun-version: latest
 
       - name: Install dependencies
+        working-directory: Ramz-E-Fikr
         run: bun install
 
       - name: Build project
+        working-directory: Ramz-E-Fikr
         run: bun run build
 
       - name: Setup Pages
@@ -41,7 +43,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: './Ramz-E-Fikr/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
