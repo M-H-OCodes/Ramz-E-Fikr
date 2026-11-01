@@ -3,7 +3,7 @@ import { Search, Filter, ArrowRight, BookOpen, Clock, X, ChevronRight } from 'lu
 import { useDataStore } from '../services/store';
 import { Article, DebateFormat, DifficultyLevel } from '../types';
 import { ArticleOverviewModal } from '../components/ArticleOverviewModal';
-import { assetUrl } from '../utils/assetUrl';
+import { getArticleCoverImage } from '../utils/resourceCover';
 
 interface ArticlesViewProps {
   onNavigate: (path: string) => void;
@@ -250,7 +250,7 @@ export const ArticlesView: React.FC<ArticlesViewProps> = ({ onNavigate, initialP
                 {article.cover_image_url && (
                   <div className="aspect-[16/10] w-full overflow-hidden rounded bg-[#D8CCBB] mb-4">
                     <img
-                      src={assetUrl(article.cover_image_url)}
+                      src={getArticleCoverImage(article)}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                     />

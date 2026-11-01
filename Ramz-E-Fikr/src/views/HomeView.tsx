@@ -17,7 +17,7 @@ import { MotionPrepDrawer } from '../components/MotionPrepDrawer';
 import { RandomMotionModal } from '../components/RandomMotionModal';
 import { ArticleOverviewModal } from '../components/ArticleOverviewModal';
 import { Article, Motion, ResourceItem } from '../types';
-import { getResourceCoverImage } from '../utils/resourceCover';
+import { getResourceCoverImage, getArticleCoverImage } from '../utils/resourceCover';
 import { assetUrl } from '../utils/assetUrl';
 
 interface HomeViewProps {
@@ -149,7 +149,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             >
               <div className="aspect-[16/9] w-full overflow-hidden rounded bg-[#D8CCBB] mb-5">
                 <img
-                  src={assetUrl(featuredArticles[0].cover_image_url)}
+                  src={getArticleCoverImage(featuredArticles[0])}
                   alt={featuredArticles[0].title}
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                 />
