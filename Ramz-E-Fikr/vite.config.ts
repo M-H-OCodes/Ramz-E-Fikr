@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: '/Video-Editing-Course/', // 🟢 Updated with capital letters to match your URL exactly
+    base: '/Ramz-E-Fikr/', // must match the GitHub repository name exactly (case-sensitive)
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
