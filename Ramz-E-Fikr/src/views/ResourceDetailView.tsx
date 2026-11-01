@@ -17,6 +17,7 @@ import { useDataStore } from '../services/store';
 import { CommentSection } from '../components/CommentSection';
 import { downloadResourceAsWord, printOrSaveResourceAsPdf, downloadPdfBinary } from '../utils/documentExport';
 import { getResourceCoverImage } from '../utils/resourceCover';
+import { assetUrl } from '../utils/assetUrl';
 
 interface ResourceDetailViewProps {
   slug: string;
@@ -50,13 +51,14 @@ export const ResourceDetailView: React.FC<ResourceDetailViewProps> = ({ slug, on
   }
 
   // Determine authoritative master PDF link (local asset, external treaty/source, or master compendium)
-  const masterPdfUrl =
+  const masterPdfPath =
     resource.master_pdf_url ||
     (resource.file_url && (resource.file_url.startsWith('/assets/') || resource.file_url.toLowerCase().endsWith('.pdf'))
       ? resource.file_url
       : '/assets/aistudio/Debate_Resources_Compilation_731a0f5c.pdf');
 
-  const isLocalPdf = Boolean(masterPdfUrl && masterPdfUrl.startsWith('/assets/'));
+  const isLocalPdf = Boolean(masterPdfPath && masterPdfPath.startsWith('/assets/'));
+  const masterPdfUrl = assetUrl(masterPdfPath);
 
   const isYouTube = Boolean(
     resource.file_url &&
@@ -230,7 +232,7 @@ export const ResourceDetailView: React.FC<ResourceDetailViewProps> = ({ slug, on
             {/* External Links if YouTube or Google Drive */}
             {isYouTube && (
               <a
-                href={resource.file_url}
+                href={assetUrl(resource.file_url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => store.incrementResourceDownloads(resource.slug)}
@@ -244,7 +246,7 @@ export const ResourceDetailView: React.FC<ResourceDetailViewProps> = ({ slug, on
 
             {isDrive && (
               <a
-                href={resource.file_url}
+                href={assetUrl(resource.file_url)}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => store.incrementResourceDownloads(resource.slug)}

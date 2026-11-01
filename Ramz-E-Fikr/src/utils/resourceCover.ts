@@ -1,4 +1,5 @@
 import { ResourceItem } from '../types';
+import { assetUrl } from './assetUrl';
 
 /**
  * Returns a verified, high-fidelity public preview image URL for any debate vault resource.
@@ -7,7 +8,7 @@ import { ResourceItem } from '../types';
  */
 export function getResourceCoverImage(resource: ResourceItem): string {
   if (resource.cover_image_url) {
-    return resource.cover_image_url;
+    return assetUrl(resource.cover_image_url);
   }
 
   const title = (resource.title || '').toLowerCase();
@@ -24,7 +25,7 @@ export function getResourceCoverImage(resource: ResourceItem): string {
     title.includes('theories') ||
     skill.includes('critical thinking')
   ) {
-    return '/assets/images/article_cover_philosophy_1791949946006.jpg';
+    return assetUrl('/assets/images/article_cover_philosophy_1791949946006.jpg');
   }
 
   // Geopolitics, International Relations, Foreign Policy, State Power
@@ -39,7 +40,7 @@ export function getResourceCoverImage(resource: ResourceItem): string {
     title.includes('nato') ||
     title.includes('icc')
   ) {
-    return '/assets/images/hero_debate_chamber_1791952563761.jpg';
+    return assetUrl('/assets/images/hero_debate_chamber_1791952563761.jpg');
   }
 
   // Prep, Rebuttal, Sparring, Motions, POIs
@@ -53,7 +54,7 @@ export function getResourceCoverImage(resource: ResourceItem): string {
     title.includes('poi') ||
     title.includes('sparring')
   ) {
-    return '/assets/images/motion_chamber_sparring_1791952563900.jpg';
+    return assetUrl('/assets/images/motion_chamber_sparring_1791952563900.jpg');
   }
 
   // Weighing, Extensions, Economics, Public Finance
@@ -67,7 +68,7 @@ export function getResourceCoverImage(resource: ResourceItem): string {
     title.includes('monetary') ||
     title.includes('macroeconomic')
   ) {
-    return '/assets/images/article_weighing_cover_1791952564020.jpg';
+    return assetUrl('/assets/images/article_weighing_cover_1791952564020.jpg');
   }
 
   // Handbooks, Rules, Adjudication, Tabbycat
@@ -80,9 +81,9 @@ export function getResourceCoverImage(resource: ResourceItem): string {
     title.includes('judge') ||
     title.includes('tabbing')
   ) {
-    return '/assets/images/resource_cover_handbook_1791949945052.jpg';
+    return assetUrl('/assets/images/resource_cover_handbook_1791949945052.jpg');
   }
 
   // Default master library cover
-  return '/assets/images/ramz_hero_library_1791949944526.jpg';
+  return assetUrl('/assets/images/ramz_hero_library_1791949944526.jpg');
 }

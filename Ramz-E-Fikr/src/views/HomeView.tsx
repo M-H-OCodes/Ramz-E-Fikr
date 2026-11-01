@@ -18,6 +18,7 @@ import { RandomMotionModal } from '../components/RandomMotionModal';
 import { ArticleOverviewModal } from '../components/ArticleOverviewModal';
 import { Article, Motion, ResourceItem } from '../types';
 import { getResourceCoverImage } from '../utils/resourceCover';
+import { assetUrl } from '../utils/assetUrl';
 
 interface HomeViewProps {
   onNavigate: (path: string) => void;
@@ -55,7 +56,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
         {/* Subtle decorative background imagery with high-contrast scrim */}
         <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
           <img
-            src="/assets/images/hero_debate_chamber_1791952563761.jpg"
+            src={assetUrl('/assets/images/hero_debate_chamber_1791952563761.jpg')}
             alt="Historic debate hall"
             className="w-full h-full object-cover"
           />
@@ -148,7 +149,7 @@ export const HomeView: React.FC<HomeViewProps> = ({ onNavigate }) => {
             >
               <div className="aspect-[16/9] w-full overflow-hidden rounded bg-[#D8CCBB] mb-5">
                 <img
-                  src={featuredArticles[0].cover_image_url}
+                  src={assetUrl(featuredArticles[0].cover_image_url)}
                   alt={featuredArticles[0].title}
                   className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                 />

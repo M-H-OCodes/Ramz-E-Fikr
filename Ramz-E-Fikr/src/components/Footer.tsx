@@ -1,5 +1,4 @@
 import React from 'react';
-import { Download } from 'lucide-react';
 
 interface FooterProps {
   onNavigate: (path: string) => void;
@@ -127,17 +126,6 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, onOpenSupabase }) =>
                 >
                   Supabase Database Sync
                 </button>
-              </li>
-              <li>
-                <a
-                  href="/assets/ramz-e-fikr-github-ready.zip"
-                  download="ramz-e-fikr-github-ready.zip"
-                  className="hover:text-[#681F2B] transition-colors flex items-center gap-1.5 font-medium text-[#681F2B]"
-                  title="Download complete GitHub-ready repository zip archive"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Download Codebase (.ZIP)</span>
-                </a>
               </li>
             </ul>
           </div>

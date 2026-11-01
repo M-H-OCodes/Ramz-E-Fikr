@@ -1,4 +1,5 @@
 import { ResourceItem, Article } from '../types';
+import { assetUrl } from './assetUrl';
 
 /**
  * Generates an authentic, richly formatted Microsoft Word (.doc) document
@@ -545,7 +546,7 @@ export async function downloadPdfBinary(
   // If local asset or relative path, fetch in-session binary
   if (url.startsWith('/assets/') || url.startsWith('/') || url.startsWith(window.location.origin)) {
     try {
-      const response = await fetch(url, {
+      const response = await fetch(assetUrl(url), {
         method: 'GET',
         headers: {
           Accept: 'application/pdf,*/*'
